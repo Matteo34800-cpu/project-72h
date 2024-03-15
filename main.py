@@ -9,16 +9,17 @@ checksum=1
 
 
 
-match command:
-    case 1 :
+    if command == 1:
         print("Going reverse")
         print(data)
-        print([address,command,data,checksum])
-        ser.write([address,command,data,checksum])
-    case 8:
+        print([address, command, data, checksum])
+        ser.write([address, command, data, checksum])
+    elif command == 8:
         print("Going forward at speed")
         print(data)
-        print([address,command,data,checksum])
+        print([address, command, data, checksum])
         ser.write([address, command, data, checksum])
-    case 20:
-        print("waiting")
+    elif command == 20:
+        print("Waiting")
+    else:
+        print("Invalid command")
